@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPDC</title>
+    <link rel="icon" type="image/png" href="images/image.png" />
+    <style>
+      .heading h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align top line to left */
+        font-size: 2rem;
+        margin: 0 26px;
+      }
+
+      .heading .bottom-line {
+        align-self: center; 
+      }
+      @media (max-width: 768px) {
+        .heading {
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .heading h1 {
+          align-items: center; 
+          font-size: 1rem;
+          margin: 10px 0;
+        }
+
+        .bottom-line {
+          align-self: center;
+        }
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/109a493327.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- PDF.js and Jcrop libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css" />
+    <script src="https://unpkg.com/jcrop"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="heading">
+        <h1>
+          <span class="top-line">ENVIRONMENT</span>
+          <span class="bottom-line">ACTIVISIT</span>
+        </h1>
+        <h1>
+          <span class="top-line">DHAKSHINADHI</span>
+          <span class="bottom-line">NEWS</span>
+        </h1>
+      </div>
+
+      <div class="social-links">
+        <a
+          href="https://www.facebook.com/share/167tSVQ9yY/?mibextid=wwXIfr"
+          class="social-icon"
+          ><i class="fa -brands fa-facebook"></i
+        ></a>
+        <a href="https://x.com/epdc225709?s=11" class="social-icon"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/environment_council/profilecard"
+          class="social-icon"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a
+          href="https://youtube.com/@environmentcouncil?si=2DBOX_u-20v-hitC"
+          class="social-icon"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+        <a
+          href="https://whatsapp.com/channel/0029VaXQPYMIN9irM65HUp0y"
+          class="social-icon"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+      </div>
+    </div>
+    <div class="main-editions">
+      <div class="heading-container">
+        <h1>MAIN EDITIONS</h1>
+        <select id="date-picker">
+          <option value="">Select Month</option>
+        </select>
+      </div>
+
+      <div class="edition-container"></div>
+      <div class="section ad-section" id="ad-section"></div>
+    </div>
+    <!-- PDF Viewer Modal -->
+    <div class="pdf-modal" id="pdf-modal">
+      <div class="pdf-modal-content">
+        <span class="close-modal">×</span>
+        <div class="pdf-toolbar">
+          <div>
+            <button class="tool-button" id="prev-page">Previous</button>
+            <button class="tool-button" id="next-page">Next</button>
+            <button class="tool-button" id="zoom-in">Zoom In</button>
+            <button class="tool-button" id="zoom-out">Zoom Out</button>
+            <button class="tool-button" id="crop-btn">Crop</button>
+            <button class="tool-button" id="share-btn" style="display: none">
+              Share
+            </button>
+          </div>
+          <div id="page-info">
+            Page: <span id="current-page">1</span> of
+            <span id="total-pages">1</span>
+          </div>
+        </div>
+        <div id="pdf-viewer-container">
+          <div class="pdf-viewer-wrapper">
+            <img id="pdf-image" alt="PDF Image" style="display: none" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Share Modal -->
+    <div class="share-modal" id="share-modal">
+      <div class="share-modal-content">
+        <h3>Share Cropped Image</h3>
+        <div id="cropped-image-container"></div>
+        <div class="share-buttons">
+          <button class="tool-button" id="download-btn">Download</button>
+          <button class="tool-button" id="share-wa-btn">
+            Share on WhatsApp
+          </button>
+          <button class="tool-button" id="close-share-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div></div>
+    <footer>
+      <div class="footer-bottom">
+        <p>Copyright © EPDC @ 2025. All rights reserved.</p>
+        <p class="company">
+          Powered By <a target="_blank" href="https://nuhvin.com/">Nuhvin</a>
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

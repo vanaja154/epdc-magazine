@@ -1,0 +1,479 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 58%;
+  position: relative;
+  top: 0px;
+}
+/* Custom Header Styling */
+.custom-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-header img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px;
+}
+.right-section {
+  margin-left: 70px;
+}
+.right-section img {
+  width: 100%;
+  height: 263px;
+}
+.main-editions {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-editions h1 {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.edition-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.edition-card {
+  width: 30%;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+.edition-card img {
+  width: 100%;
+  height: auto;
+}
+.edition-title {
+  background-color: #ffc107;
+  padding: 10px;
+  font-size: 18px;
+  color: #000;
+}
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: #9acd32;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  margin: 0 26px;
+  font-size: 2rem;
+}
+.social-links {
+  margin-right: 75px;
+}
+.social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #f7eded;
+  color: #9acd32;
+  text-align: center;
+  line-height: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #868181;
+}
+.footer-bottom {
+  padding-top: 20px;
+}
+.footer-bottom p {
+  text-align: center;
+  color: white;
+}
+.footer-bottom a {
+  color: rgb(250, 170, 20);
+  text-decoration: none;
+}
+
+/* PDF Viewer Modal */
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  overflow: auto;
+}
+.pdf-modal-content {
+  background-color: #fff;
+  margin: 2% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+#pdf-viewer-container {
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+  border: 1px solid #ddd;
+  position: relative;
+  margin-bottom: 20px;
+  height: 80vh;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+.pdf-toolbar {
+  background-color: #f5f5f5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.tool-button {
+  padding: 5px 10px;
+  background-color: #9acd32;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.tool-button:hover {
+  background-color: #7cb342;
+}
+.share-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 1001;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 40%;
+}
+.share-modal-content {
+  text-align: center;
+}
+#cropped-image-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+#cropped-image-container img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+}
+#pdf-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+#share-btn {
+  margin: 10px;
+}
+#ad-section {
+  width: 30%;
+  height: 30px;
+}
+#ad-section img {
+  width: 70%;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+    } */
+
+  .header {
+    height: 75px;
+  }
+  .main-editions h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 1rem;
+  }
+  .edition-container {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .edition-card {
+    width: 80%;
+  }
+  .right-section {
+    margin-left: 0;
+    width: 80%;
+    margin-top: 20px;
+  }
+  .social-links {
+    margin-right: 10px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0px;
+    top: 37px;
+  }
+  .social-icon {
+    width: 24px;
+    height: 34px;
+    margin-top: 3px;
+  }
+  .pdf-modal-content {
+    width: 95%;
+    padding: 10px;
+  }
+  .pdf-toolbar {
+    flex-wrap: wrap;
+  }
+  .tool-button {
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+  .share-modal {
+    width: 90%;
+  }
+  #ad-section img {
+    width: 70%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* Date Picker */
+#date-picker {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  /* margin: 1rem; */
+  margin-left: 60px;
+}
+#date-picker:focus {
+  border-color: #4a90e2;
+  background-color: #e7f0ff;
+}
+#date-picker:hover {
+  border-color: #007bff;
+  cursor: pointer;
+}
+
+/* Enhanced mobile-friendly styles for Jcrop */
+
+/* Fix Jcrop positioning for better touch handling */
+.jcrop-stage {
+  position: relative !important;
+  z-index: 5 !important;
+  overflow: visible !important; /* Ensure handles don't get clipped */
+  touch-action: none !important; /* Prevent browser handling of touch events */
+}
+
+.jcrop-image-stage {
+  position: relative !important;
+  z-index: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  touch-action: none !important; /* Prevent browser handling of touch events */
+}
+
+/* Make sure the image doesn't interfere with touch events */
+.jcrop-image-stage img {
+  position: relative !important;
+  z-index: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  touch-action: none !important;
+}
+
+/* Ensure crop selection is on top */
+.jcrop-selection {
+  z-index: 3 !important;
+  touch-action: none !important;
+  cursor: move !important;
+  border: 1px solid #fff !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Make shade appear properly above image */
+.jcrop-shade {
+  z-index: 2 !important;
+  touch-action: none !important;
+}
+
+/* Ensure handle elements are on top and accessible */
+.jcrop-handle {
+  z-index: 10 !important;
+  touch-action: none !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border: 2px solid rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Mobile specific enhancements */
+@media (max-width: 768px) {
+  .heading {
+    top: -13px;
+  }
+  #pdf-viewer-container {
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+
+  /* Larger handles for touch devices */
+  .jcrop-handle {
+    width: 24px !important;
+    height: 24px !important;
+    opacity: 0.8 !important;
+  }
+
+  /* More visible selection border */
+  .jcrop-selection {
+    border: 2px solid white !important;
+  }
+
+  /* Better toolbar buttons for mobile */
+  .tool-button {
+    padding: 8px 12px !important;
+    min-height: 44px !important;
+    min-width: 60px !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Larger close button for mobile */
+  .close-modal {
+    font-size: 36px !important;
+    padding: 10px !important;
+  }
+
+  /* Adjust toolbar layout for small screens */
+  .pdf-toolbar {
+    flex-direction: column !important;
+  }
+
+  .pdf-toolbar > div:first-child {
+    margin-bottom: 10px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* Center page info on mobile */
+  #page-info {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* Adjust share modal for mobile */
+  .share-modal {
+    top: 50% !important;
+    width: 90% !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+  }
+
+  #ad-section {
+    width: 100%;
+    height: 270px;
+    text-align: center;
+  }
+}
+
+/* Special handling for iOS devices */
+@supports (-webkit-touch-callout: none) {
+  .jcrop-stage,
+  .jcrop-image-stage,
+  .jcrop-selection,
+  .jcrop-handle {
+    touch-action: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+
+  /* Fix Safari scrolling issues */
+  #pdf-viewer-container {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Fix for multiple crop elements */
+.jcrop-widget {
+  touch-action: none !important;
+}
+
+.heading-container {
+  display: flex;
+  /* background-color: red; */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  & h1 {
+    position: absolute;
+    left: 0;
+  }
+}
+
+@media (width < 768px) {
+  .heading-container {
+    flex-direction: column;
+    /* background-color: red; */
+    position: static;
+    width: 100%;
+  }
+  .heading-container h1 {
+    position: relative;
+  }
+
+  .heading-container select {
+    width: 80% !important;
+    margin-left: 0 !important;
+    /* margin: 0 auto; */
+  }
+}
+
+.edition-container {
+  margin-top: 2rem;
+}
