@@ -97,7 +97,7 @@ async function getInitDate(date) {
 
       updateOrCreateDynamicCard(epaper);
     } else {
-      alert("No newspaper found for the selected date");
+      alert("No newspaper found for the selected month");
       if (dynamicEditionCard) {
         dynamicEditionCard = null;
       }
@@ -136,32 +136,56 @@ async function findMostRecentDate() {
 }
 
 // Initialize the page with the current date or fallback to the most recent date
+// (async function initializePage() {
+//   const currentDate = formatDate(new Date());
+//   let hasCurrentDateData = false;
+
+//   try {
+//     const resp = await fetch(`/getbydate?date=${currentDate}`);
+//     const data = await resp.json();
+//     if (data && data.length > 0) {
+//       hasCurrentDateData = true;
+//       console.log(currentDate, "current date");
+
+//       getInitDate(currentDate); // Display current date data
+//     }
+//   } catch (error) {
+//     console.error("Error checking current date data:", error);
+//   }
+
+//   if (!hasCurrentDateData) {
+//     const mostRecentDate = await findMostRecentDate();
+//     if (mostRecentDate) {
+//       getInitDate(mostRecentDate); // Display most recent date data
+//     } else {
+//       alert("No newspaper data available for the recent dates.");
+//     }
+//   }
+// })();
+
+// Initialize the page with the current month or fallback to most recent available month
 (async function initializePage() {
-  const currentDate = formatDate(new Date());
-  let hasCurrentDateData = false;
+  const currentMonth = new Date().getMonth() + 1; // 1–12
 
-  try {
-    const resp = await fetch(`/getbydate?date=${currentDate}`);
-    const data = await resp.json();
-    if (data && data.length > 0) {
-      hasCurrentDateData = true;
-      console.log(currentDate, "current date");
+  for (let month = currentMonth; month >= 1; month--) {
+    try {
+      const resp = await fetch(`/getbymonth?month=${month}`);
+      const data = await resp.json();
 
-      getInitDate(currentDate); // Display current date data
-    }
-  } catch (error) {
-    console.error("Error checking current date data:", error);
-  }
-
-  if (!hasCurrentDateData) {
-    const mostRecentDate = await findMostRecentDate();
-    if (mostRecentDate) {
-      getInitDate(mostRecentDate); // Display most recent date data
-    } else {
-      alert("No newspaper data available for the recent dates.");
+      if (data && data.length > 0) {
+        console.log("Loading data for month:", month);
+        datepicker.value = month; // Set dropdown to selected month
+        getInitDate(month);       // Load data
+        return;
+      }
+    } catch (error) {
+      console.error(`Error checking data for month ${month}:`, error);
     }
   }
+
+  alert("No newspaper data available for recent months.");
 })();
+
 
 function updateOrCreateDynamicCard(epaper) {
   const editionContainer = document.querySelector(".edition-container");
